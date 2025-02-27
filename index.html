@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Links</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { margin: 10px; padding: 8px; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h2>Add Your Social Media Links</h2>
+    <input type="url" id="linkInput" placeholder="Enter a link...">
+    <button onclick="addLink()">Add Link</button>
+    <h3>Saved Links</h3>
+    <ul id="linksList"></ul>
+    <script>
+        function addLink() {
+            let input = document.getElementById('linkInput');
+            let url = input.value;
+            if (url) {
+                let list = document.getElementById('linksList');
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                a.href = url;
+                a.textContent = url;
+                a.target = "_blank";
+                li.appendChild(a);
+                list.appendChild(li);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
